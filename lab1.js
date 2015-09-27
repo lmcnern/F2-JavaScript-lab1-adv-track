@@ -56,7 +56,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  zoo-themed.  Make one pass and one fail. In the failure message, describe why
  it failed.
 */
-
+assert('meerkat' === 'meerkat', 'meerkat is a meerkat');
+assert('rhino' === 'whale', 'rhino is not a whale');
 //your code goes here
 
 /* ========================================================================
@@ -68,6 +69,7 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 
 var sentence1 = 'More food please.';
 var sentence2 = 'Come over here so you can scratch my belly.';
+
 /*
  Your goal is to replace the words in the above sentences with 'chirp' The
  assertions at the end of this section should pass when you're done.
@@ -76,13 +78,32 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 
 // TODO: part #1: use a for loop to replace the words in sentence 1 with
 // 'chirp' (10 points)
-
-// your code goes here
+function sentence(words) {
+  var splitString = words.split(' ');
+  var translation = '';
+  for (var i = 0; i < splitString.length; i++) {
+    translation += 'chirp ';
+  }
+  return translation
+}
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
-// your code goes here
+function sentenceWhile(words) {
+  var splitString = words.split(' ');
+  var translation = '';
+  var i = 0;
+  while (i < splitString.length) {
+    translation += 'chirp ';
+    i++;
+  }
+  return translation
+}
+
+// I also did an extra solution with regex
+var sentence1 = sentence1.replace(/[a-zA-Z]+/g, 'chirp');
+var sentence2 = sentence2.replace(/[a-zA-Z]+/g, 'chirp');
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -99,13 +120,11 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
 */
 
 var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
-var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
-
+  var nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
 // your code goes here
-
 assert(nextAnimal, 'assign something to nextAnimal');
 
 /* ===================================================================
@@ -133,7 +152,19 @@ var tooHungryDay;
  meals)
 */
 
-// your code goes here
+var totalMeals = 0
+var hungryCheck = 0;
+var tooHungryDay;
+  for (var day = 1; day <= mealsPerDay.length; day+=1) {
+    totalMeals += mealsPerDay[day - 1];
+    hungryCheck = Math.floor(totalMeals/day);
+    if (hungryCheck < 4) {
+      tooHungryDay = hungryCheck;
+      console.log(tooHungryDay + ' + day: '+ day);
+      return tooHungryDay;
+    }
+  }
+
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
