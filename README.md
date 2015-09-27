@@ -12,5 +12,6 @@ comments. Be sure to read everything. Run lab.js with `node lab1.js`.
 9. List any resources you used (blogs, stack overflow questions, etc.) or collaborators below.
 
 
-#### Resources and Collaborators
+#### My Notes
 
+Added a regex solution, new answers for advanced track.
